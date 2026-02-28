@@ -1,31 +1,607 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DIARRA IBRAHIMA JR - Entreprise</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DIARRA IBRAHIMA JR – Entreprise individuelle immatriculée au RCCM Sénégal. Études et développement de solutions informatiques, design, community management, ingénierie logicielle." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="DIARRA IBRAHIMA JR – Entreprise Individuelle" />
+  <meta property="og:description" content="Entreprise individuelle spécialisée en informatique, design et ingénierie logicielle. Dakar, Sénégal." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diarraibrahimajr.coutureciel.com" />
+  <title>DIARRA IBRAHIMA JR – Entreprise Individuelle | Dakar, Sénégal</title>
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:40px; background:#f8f9fa; color:#333; line-height:1.6; }
-    .container { max-width:800px; margin:auto; background:white; padding:40px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
-    h1 { color:#2c3e50; text-align:center; }
-    .highlight { color:#e74c3c; font-weight:bold; }
-    footer { margin-top:60px; text-align:center; font-size:0.9em; color:#777; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #B8960C;
+      --gold-light: #D4AF37;
+      --dark: #0F0F0F;
+      --dark-2: #161616;
+      --dark-3: #1E1E1E;
+      --mid: #2A2A2A;
+      --border: rgba(184,150,12,0.2);
+      --text: #E8E8E8;
+      --text-muted: #888;
+      --white: #FAFAFA;
+      --font: 'Georgia', 'Times New Roman', serif;
+      --font-sans: 'Trebuchet MS', 'Gill Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--dark-2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-family: var(--font);
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: 2rem; }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, var(--dark-2) 0%, var(--dark) 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 100px 2rem 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(184,150,12,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      font-family: var(--font-sans);
+    }
+
+    .hero h1 {
+      font-family: var(--font);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span { color: var(--gold-light); }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-desc {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      color: #aaa;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .hero-contacts {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-contacts a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .hero-contacts a:hover { border-bottom-color: var(--gold); }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 80px 2rem; }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── PRÉSENTATION ── */
+    #presentation { background: var(--dark); }
+
+    .presentation-text {
+      color: #aaa;
+      font-size: 1rem;
+      line-height: 1.9;
+      max-width: 720px;
+    }
+
+    .presentation-text strong { color: var(--text); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .info-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+
+    .info-card .label {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card .value {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    /* ── ACTIVITÉS ── */
+    #activites { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .activity-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .activity-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .activity-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .activity-card:hover::before { opacity: 1; }
+
+    .activity-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .activity-title {
+      font-family: var(--font);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .activity-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── PRODUIT PHARE ── */
+    #produit { background: var(--dark); }
+
+    .product-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .product-card { grid-template-columns: 1fr; }
+    }
+
+    .product-name {
+      font-family: var(--font);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .product-name span { color: var(--gold-light); }
+
+    .product-tagline {
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .product-desc {
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    .product-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 12px 28px;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .product-link:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .product-badge {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .product-badge .big { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .product-badge .small { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── LÉGAL ── */
+    #mentions { background: var(--dark-2); border-top: 1px solid var(--border); }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .legal-item .lbl {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .legal-item .val {
+      font-size: 0.92rem;
+      color: #bbb;
+    }
+
+    .legal-note {
+      background: var(--dark-3);
+      border-left: 3px solid var(--gold);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-family: var(--font);
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      line-height: 2;
+    }
+
+    .footer-meta a { color: var(--text-muted); text-decoration: none; }
+    .footer-meta a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 1rem; }
+      nav { gap: 1rem; }
+      nav a { font-size: 0.75rem; }
+      section { padding: 60px 1.25rem; }
+      .product-card { padding: 2rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      nav { display: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>DIARRA IBRAHIMA JR</h1>
-    <p style="text-align:center; font-size:1.2em;">Entreprise individuelle immatriculée au RCCM</p>
-    
-    <h2>Présentation</h2>
-    <p>DIARRA IBRAHIMA JR exerce dans les domaines des études et du développement de solutions informatiques, du design, du community management et de l’ingénierie logicielle.</p>
-    
-    <h2>Produit phare</h2>
-    <p>Nous développons et commercialisons <span class="highlight">Coutureciel</span>, une plateforme innovante dédiée à la mode et au e-commerce textile au Sénégal.</p>
-    
-    <p>Site principal : <a href="https://coutureciel.com" target="_blank">coutureciel.com</a></p>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+  <a class="logo" href="#">DIARRA IBRAHIMA JR</a>
+  <nav>
+    <a href="#activites">Activités</a>
+    <a href="#produit">Produit</a>
+    <a href="#mentions">Légal</a>
+    <a href="mailto:contact@diarraibrahimajr.sn">Contact</a>
+  </nav>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-badge">Entreprise Individuelle – RCCM Sénégal</div>
+  <h1><span>DIARRA</span> IBRAHIMA JR</h1>
+  <p class="hero-sub">Ingénierie · Design · Numérique – Dakar, Sénégal</p>
+  <p class="hero-desc">
+    Entreprise individuelle immatriculée au RCCM Sénégal, spécialisée dans le développement de solutions informatiques, le design, l'ingénierie logicielle et le community management.
+  </p>
+  <div class="hero-contacts">
+    <a href="mailto:contact@diarraibrahimajr.sn">contact@diarraibrahimajr.sn</a>
+    <a href="tel:+221777292974">+221 77 729 29 74</a>
+    <span style="color:var(--text-muted);font-size:0.88rem;">ZONE A 47 A, Dakar</span>
   </div>
-  
-  <footer>DIARRA IBRAHIMA JR – ZONE A 47 A DAKAR – Immatriculation RCCM SN DKR … – 2023</footer>
+</section>
+
+<!-- ═══════════════ PRÉSENTATION ═══════════════ -->
+<section id="presentation">
+  <div class="container">
+    <p class="section-label">Qui sommes-nous</p>
+    <h2 class="section-title">DIARRA IBRAHIMA JR</h2>
+    <div class="divider"></div>
+    <p class="presentation-text">
+      <strong>DIARRA IBRAHIMA JR</strong> est une entreprise individuelle basée à Dakar, au Sénégal, immatriculée au Registre du Commerce et du Crédit Mobilier (RCCM). Fondée avec pour mission d'accompagner les entreprises et particuliers dans leur transformation numérique, l'entité propose une gamme complète de services allant du développement logiciel à la stratégie digitale.
+      <br /><br />
+      Opérant depuis <strong>ZONE A 47 A, Dakar</strong>, <strong>DIARRA IBRAHIMA JR</strong> combine expertise technique et créativité pour concevoir des solutions adaptées au marché sénégalais et à l'Afrique de l'Ouest. Notre approche est centrée sur la qualité, la rigueur et l'impact concret pour nos clients.
+    </p>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">Forme juridique</div>
+        <div class="value">Entreprise Individuelle</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Registre</div>
+        <div class="value">RCCM Sénégal</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Siège social</div>
+        <div class="value">ZONE A 47 A, Dakar, Sénégal</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Contact</div>
+        <div class="value">+221 77 729 29 74</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ACTIVITÉS ═══════════════ -->
+<section id="activites">
+  <div class="container">
+    <p class="section-label">Domaines d'expertise</p>
+    <h2 class="section-title">Nos Activités</h2>
+    <div class="divider"></div>
+    <div class="activities-grid">
+
+      <div class="activity-card">
+        <div class="activity-icon">💻</div>
+        <div class="activity-title">Études & Développement Informatique</div>
+        <div class="activity-desc">Conception et réalisation de systèmes d'information, applications web et mobiles, API et architectures backend sur mesure pour les entreprises.</div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🎨</div>
+        <div class="activity-title">Design</div>
+        <div class="activity-desc">Identité visuelle, design d'interfaces (UI/UX), supports de communication, graphisme et direction artistique pour renforcer votre image de marque.</div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">📱</div>
+        <div class="activity-title">Community Management</div>
+        <div class="activity-desc">Gestion de réseaux sociaux, création de contenu, stratégie d'engagement et animation de communautés digitales pour les marques et organisations.</div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">⚙️</div>
+        <div class="activity-title">Ingénierie Logicielle</div>
+        <div class="activity-desc">Développement de logiciels robustes et scalables, optimisation de performances, intégration de systèmes et conseil en architecture technique.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PRODUIT PHARE ═══════════════ -->
+<section id="produit">
+  <div class="container">
+    <p class="section-label">Réalisation phare</p>
+    <h2 class="section-title">Notre Produit Vedette</h2>
+    <div class="divider"></div>
+    <div class="product-card">
+      <div>
+        <div class="product-name"><span>Couture</span>ciel</div>
+        <div class="product-tagline">Mode & E-commerce Textile – Sénégal</div>
+        <p class="product-desc">
+          Coutureciel est une plateforme numérique dédiée à la mode et au commerce en ligne du textile au Sénégal. Développée et opérée par <strong>DIARRA IBRAHIMA JR</strong>, elle met en relation artisans, créateurs de mode et acheteurs, valorisant le savoir-faire local et facilitant la vente de produits textiles authentiques à travers le pays.
+          <br /><br />
+          La plateforme propose une expérience d'achat fluide, une vitrine pour les créateurs sénégalais et des outils e-commerce adaptés au marché local.
+        </p>
+        <a href="https://coutureciel.com" class="product-link" target="_blank" rel="noopener noreferrer">
+          Visiter coutureciel.com ↗
+        </a>
+      </div>
+      <div class="product-badge">
+        <div class="big">🪡</div>
+        <div class="small">Mode<br/>Sénégal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MENTIONS LÉGALES ═══════════════ -->
+<section id="mentions">
+  <div class="container">
+    <p class="section-label">Transparence & conformité</p>
+    <h2 class="section-title">Mentions Légales</h2>
+    <div class="divider"></div>
+    <div class="legal-grid">
+      <div class="legal-item">
+        <div class="lbl">Raison sociale</div>
+        <div class="val">DIARRA IBRAHIMA JR</div>
+      </div>
+      <div class="legal-item">
+        <div class="lbl">Forme juridique</div>
+        <div class="val">Entreprise Individuelle</div>
+      </div>
+      <div class="legal-item">
+        <div class="lbl">RCCM</div>
+        <div class="val">SN-DKR-2023-…</div>
+      </div>
+      <div class="legal-item">
+        <div class="lbl">Siège social</div>
+        <div class="val">ZONE A 47 A, Dakar, Sénégal</div>
+      </div>
+      <div class="legal-item">
+        <div class="lbl">Email</div>
+        <div class="val"><a href="mailto:contact@diarraibrahimajr.sn" style="color:#bbb;text-decoration:none;">contact@diarraibrahimajr.sn</a></div>
+      </div>
+      <div class="legal-item">
+        <div class="lbl">Téléphone</div>
+        <div class="val"><a href="tel:+221777292974" style="color:#bbb;text-decoration:none;">+221 77 729 29 74</a></div>
+      </div>
+      <div class="legal-item">
+        <div class="lbl">Hébergeur</div>
+        <div class="val">coutureciel.com</div>
+      </div>
+      <div class="legal-item">
+        <div class="lbl">Année de création</div>
+        <div class="val">2023</div>
+      </div>
+    </div>
+    <div class="legal-note">
+      Le présent site est édité par <strong>DIARRA IBRAHIMA JR</strong>, entreprise individuelle immatriculée au RCCM Sénégal sous le numéro SN-DKR-2023-…, dont le siège est établi à ZONE A 47 A, Dakar, Sénégal. Toute reproduction partielle ou totale du contenu de ce site sans autorisation préalable est interdite. Pour toute question ou demande, vous pouvez nous contacter à l'adresse <a href="mailto:contact@diarraibrahimajr.sn" style="color:var(--gold);">contact@diarraibrahimajr.sn</a> ou par téléphone au <a href="tel:+221777292974" style="color:var(--gold);">+221 77 729 29 74</a>.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-name">DIARRA IBRAHIMA JR</div>
+  <div class="footer-meta">
+    ZONE A 47 A, Dakar, Sénégal &nbsp;·&nbsp; RCCM SN-DKR-2023-… &nbsp;·&nbsp; Entreprise Individuelle<br/>
+    <a href="mailto:contact@diarraibrahimajr.sn">contact@diarraibrahimajr.sn</a> &nbsp;·&nbsp;
+    <a href="tel:+221777292974">+221 77 729 29 74</a> &nbsp;·&nbsp;
+    <a href="https://coutureciel.com" target="_blank" rel="noopener">coutureciel.com</a><br/>
+    © 2023 DIARRA IBRAHIMA JR – Tous droits réservés
+  </div>
+</footer>
+
 </body>
 </html>

@@ -594,6 +594,7 @@
         <a href="#produit">Produit</a>
         <a href="#partenaire">Partenaire</a>
         <a href="#mentions">Légal</a>
+        <a href="#routes">Routes</a>
         <a href="mailto:contact@diarraibrahimajr.sn">Contact</a>
       </nav>
     </header>
@@ -620,6 +621,24 @@
     </section>
 
     <!-- ═══════════════ PRÉSENTATION ═══════════════ -->
+    <section id="routes">
+      <div class="container">
+        <p class="section-label">Navigation</p>
+        <h2 class="section-title">Liste des routes</h2>
+        <div class="divider"></div>
+        <ul style="color: #aaa; line-height: 1.8">
+          <li><a href="/">/ (Accueil)</a></li>
+          <li><a href="#presentation">#presentation</a></li>
+          <li><a href="#activites">#activites</a></li>
+          <li><a href="#produit">#produit</a></li>
+          <li><a href="#partenaire">#partenaire</a></li>
+          <li><a href="#partenaire-tailordor">#partenaire-tailordor</a></li>
+          <li><a href="#partenaire-maisonlyno">#partenaire-maisonlyno</a></li>
+          <li><a href="#mentions">#mentions</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="presentation">
       <div class="container">
         <p class="section-label">Qui sommes-nous</p>
@@ -840,8 +859,8 @@
             <div class="partner-pill">Partenaire mis en avant</div>
           </div>
           <p class="partner-desc">
-            <strong>Tailor D'or</strong> rejoint les partenaires mis en avant sur
-            <strong>Coutureciel</strong> avec un positionnement autour de la
+            <strong>Tailor D'or</strong> rejoint les partenaires mis en avant
+            sur <strong>Coutureciel</strong> avec un positionnement autour de la
             couture et du sur-mesure. Cette section reprend le format de
             présentation dédié aux maisons et ateliers valorisés sur la
             plateforme, avec un accès direct au contact et à la page Facebook du
@@ -888,23 +907,28 @@
     <section id="partenaire-maisonlyno">
       <div class="container">
         <p class="section-label">Partenaire</p>
-        <h2 class="section-title">MAISON LYNO</h2>
+        <h2 class="section-title">Maison Lyno</h2>
         <div class="divider"></div>
         <div class="partner-card">
           <div class="partner-head">
             <div>
-              <div class="partner-name">MAISON LYNO</div>
+              <div class="partner-name">Maison Lyno</div>
               <div class="partner-tag">Mode & Couture · Dakar</div>
             </div>
             <div class="partner-pill">Partenaire</div>
           </div>
           <p class="partner-desc">
-            <strong>MAISON LYNO</strong> est une maison de couture basée au Sénégal, spécialisée dans la création et le sur-mesure. Retrouvez leur travail et contacts sur Instagram.
+            <strong>Maison Lyno</strong> est une maison de couture basée au
+            Sénégal, spécialisée dans la création et le sur-mesure. Retrouvez
+            leur travail et contacts sur Instagram.
           </p>
           <div class="partner-grid">
             <div class="partner-item">
               <div class="label">Spécialité</div>
-              <div class="value">Confection sur-mesure, créations contemporaines et traditionnelles.</div>
+              <div class="value">
+                Confection sur-mesure, créations contemporaines et
+                traditionnelles.
+              </div>
             </div>
             <div class="partner-item">
               <div class="label">Localisation</div>
@@ -913,7 +937,12 @@
             <div class="partner-item">
               <div class="label">Réseau principal</div>
               <div class="value">
-                <a href="https://www.instagram.com/maisonlyno/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a
+                  href="https://www.instagram.com/maisonlyno/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Instagram</a
+                >
               </div>
             </div>
           </div>
@@ -1010,5 +1039,46 @@
         © 2023 DIARRA IBRAHIMA JR – Tous droits réservés
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const routes = [
+          "",
+          "presentation",
+          "activites",
+          "produit",
+          "partenaire",
+          "partenaire-tailordor",
+          "partenaire-maisonlyno",
+          "mentions",
+          "routes",
+        ];
+
+        function setActiveHash(hash) {
+          const id = hash ? hash.replace("#", "") : "";
+          document.querySelectorAll("nav a").forEach((a) => {
+            const h = (a.getAttribute("href") || "").replace("#", "");
+            if (h === id) a.classList.add("active");
+            else a.classList.remove("active");
+          });
+
+          if (id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }
+
+        window.addEventListener("hashchange", () =>
+          setActiveHash(location.hash),
+        );
+        window.addEventListener("load", () => setActiveHash(location.hash));
+
+        // Expose routes as array of paths ("/" for root)
+        window.appRoutes = routes.map((r) => (r ? "#" + r : "/"));
+        console.log("Routes:", window.appRoutes);
+      })();
+    </script>
   </body>
 </html>
